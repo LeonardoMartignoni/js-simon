@@ -4,7 +4,6 @@ const minutesEl = document.getElementById("minutes");
 const secondsEl = document.getElementById("seconds");
 const titleEl = document.getElementById("title");
 
-
 // Creo una variabile che indica il giorno e l'ora della fine del countdown
 const countdownDateEnd = new Date('2023-02-06 09:30:00').getTime();
 console.log('Tomorrow ms: ' + countdownDateEnd);
@@ -32,9 +31,10 @@ function countdownCounter() {
     minutesEl.innerHTML = (minutes < 10) ? "0" + minutes : minutes;
     hoursEl.innerHTML = (hours < 10) ? "0" + hours : hours;
     daysEl.innerHTML = (days < 10) ? "0" + days : days;
-}
 
-// confetti({
-// 			particleCount: 100,
-// 			spread: 160
-// 		});
+    // Se il countdown è arrivato a 0
+    if (countdownDistance <= 0) {
+        clearInterval(clockCountdown);
+        confetti({ particleCount: 100, spread: 160 });
+    }
+}
