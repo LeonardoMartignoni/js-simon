@@ -38,7 +38,8 @@ function countdownCounter() {
     daysEl.innerHTML = (days < 10) ? "0" + days : days;
 
     // Se il countdown è arrivato a 0
-    if (countdownDistance <= 0) {
+    if (countdownDistance <= 1000) {
+
         // Ferma il countdown
         clearInterval(clockCountdown);
 
