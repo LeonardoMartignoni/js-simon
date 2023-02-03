@@ -8,6 +8,9 @@ const titleEl = document.getElementById("title");
 const countdownDateEnd = new Date('2023-02-06 09:30:00').getTime();
 console.log('Tomorrow ms: ' + countdownDateEnd);
 
+// Invoco la funzione così al caricamento della pagina non uscirà 00 sul timer
+countdownCounter()
+
 // Creo un intervallo per l'orologio
 const clockCountdown = setInterval(countdownCounter, 1000);
 function countdownCounter() {
