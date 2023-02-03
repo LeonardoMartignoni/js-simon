@@ -4,12 +4,14 @@ const minutesEl = document.getElementById("minutes");
 const secondsEl = document.getElementById("seconds");
 const titleEl = document.getElementById("title");
 
+// const countdownDateEnd = new Date().getTime() + 3000; // Debug time
+
 // Creo una variabile che indica il giorno e l'ora della fine del countdown
 const countdownDateEnd = new Date('2023-02-06 09:30:00').getTime();
 console.log('Tomorrow ms: ' + countdownDateEnd);
 
 // Invoco la funzione così al caricamento della pagina non uscirà 00 sul timer
-countdownCounter()
+countdownCounter();
 
 // Creo un intervallo per l'orologio
 const clockCountdown = setInterval(countdownCounter, 1000);
@@ -39,6 +41,9 @@ function countdownCounter() {
     if (countdownDistance <= 0) {
         // Ferma il countdown
         clearInterval(clockCountdown);
+
+        // Scrivo nel titolo un messaggio di fine
+        titleEl.innerHTML = 'Ora della correzione!';
 
         // Confetti Firework Effect
         const duration = 5 * 1000;
